@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Evaluación_de_estudiantes": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
