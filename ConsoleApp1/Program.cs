@@ -80,8 +80,8 @@ public class Program
                 }
             }
             //juego nuevo
-            Console.WriteLine("\n¿Desean jugar de nuevo? (S/N)");
-            NuevoJuego = Console.ReadLine().Trim().ToUpper() == "S";
+            Console.WriteLine("\n¿Desean jugar de nuevo? (SI/NO)");
+            NuevoJuego = Console.ReadLine().Trim().ToUpper() == "SI";
         }
     }
 
@@ -97,5 +97,28 @@ public class Program
         return numJugadores;
     }
 
- 
+    //Determinar rango según el número de jugadores
+    static int ObtenerRangoMaximo(int numJugadores)
+    {
+        switch (numJugadores)
+        {
+            case 2: return 50;
+            case 3: return 100;
+            case 4: return 200;
+            default: return 100; // Por si acaso, aunque no debe ocurrir
+        }
+    }
+
+    // Método para obtener el intento del jugador actual
+    static int ObtenerIntento(int rangoMaximo)
+    {
+        int intento;
+        do
+        {
+            Console.Write($"Ingrese un número entre 0 y {rangoMaximo}: ");
+            intento = Convert.ToInt32(Console.ReadLine());
+        } while (intento < 0 || intento > rangoMaximo);
+        return intento;
+
+    }
 }
