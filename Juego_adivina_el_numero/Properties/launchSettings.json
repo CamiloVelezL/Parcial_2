@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Juego_adivina_el_numero": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
