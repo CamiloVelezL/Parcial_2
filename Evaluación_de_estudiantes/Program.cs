@@ -48,5 +48,47 @@ public class Program
         }
     }
 
-    
+    // Método notas de los estudiantes
+    static List<double> ObtenerNotas()
+    {
+        List<double> notas = new List<double>();
+        while (true)
+        {
+            Console.Write("Ingrese una nota (o presione Enter para terminar): ");
+            string input = Console.ReadLine();
+            if (string.IsNullOrEmpty(input)) break; // Terminar si no se ingresa nada
+
+            // Validar que la nota sea un número entre 0 y 5
+            if (double.TryParse(input, out double nota) && nota >= 0 && nota <= 5)
+            {
+                notas.Add(nota);
+            }
+            else
+            {
+                Console.WriteLine("Nota inválida. Por favor, ingrese un número entre 0 y 5.");
+            }
+        }
+        return notas;
+    }
+
+    // Método para calcular el promedio de las notas
+    static double CalcularPromedio(List<double> notas)
+    {
+        return notas.Count > 0 ? notas.Average() : 0;
+    }
+
+    // Método para clasificar el desempeño según el promedio
+    static string ClasificarDesempeno(double promedio)
+    {
+        if (promedio >= 4.5) return "Excelente";
+        if (promedio >= 4.0) return "Sobresaliente";
+        if (promedio >= 3.5) return "Bueno";
+        return "Insuficiente";
+    }
+
+    // Método para contar cuántos estudiantes aprobaron
+    static int ContarAprobados(List<double> notas)
+    {
+        return notas.Count(n => n >= 3.5); // Se considera Ganada con nota >= 3.5
+    }
 }
