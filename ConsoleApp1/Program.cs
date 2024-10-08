@@ -79,7 +79,23 @@ public class Program
                     turnoActual++;
                 }
             }
-
-
+            //juego nuevo
+            Console.WriteLine("\n¿Desean jugar de nuevo? (S/N)");
+            NuevoJuego = Console.ReadLine().Trim().ToUpper() == "S";
         }
     }
+
+    //obtener el número de jugadores
+    static int ObtenerNumeroJugadores()
+    {
+        int numJugadores;
+        do
+        {
+            Console.Write("Ingrese el número de jugadores de (2-4): ");
+            numJugadores = Convert.ToInt32(Console.ReadLine());
+        } while (numJugadores < 2 || numJugadores > 4);
+        return numJugadores;
+    }
+
+ 
+}
